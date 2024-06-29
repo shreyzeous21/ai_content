@@ -84,8 +84,8 @@ function UsageTrack() {
             style={{
               width:
                 totalUsage / maxWords > 1
-                  ? 100 + "%"
-                  : (totalUsage / maxWords) * 100 + "%",
+                  ? 1000 + "%"
+                  : (totalUsage / maxWords) * 1000 + "%",
             }}
           ></div>
         </div>
