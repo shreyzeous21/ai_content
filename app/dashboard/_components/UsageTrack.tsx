@@ -34,10 +34,12 @@ function UsageTrack() {
     {
       /* @ts-ignore */
     }
-    const result: HISTORY[] = await db
+    const result: HISTORY[] | any = await db
       .select()
       .from(AIOutput)
-      .where(eq(AIOutput.createdBy, user?.primaryEmailAddress?.emailAddress));
+      .where(
+        eq(AIOutput.createdBy, user?.primaryEmailAddress?.emailAddress ?? "")
+      );
 
     GetTotalUsage(result);
   };
@@ -50,7 +52,10 @@ function UsageTrack() {
       .select()
       .from(UserSubscription)
       .where(
-        eq(UserSubscription.email, user?.primaryEmailAddress?.emailAddress)
+        eq(
+          UserSubscription.email,
+          user?.primaryEmailAddress?.emailAddress ?? ""
+        )
       );
     console.log(result);
     if (result.length > 0) {
