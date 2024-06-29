@@ -17,7 +17,7 @@ function UsageTrack() {
   const { userSubscription, setUserSubscription } = useContext(
     UserSubscriptionContext
   );
-  const [maxWords, setMaxWords] = useState(10000);
+  const [maxWords, setMaxWords] = useState(1000000);
   const { updateCreditUsage, setUpdateCreditUsage } = useContext(
     UpdateCreditUsageContext
   );
@@ -55,7 +55,7 @@ function UsageTrack() {
     console.log(result);
     if (result.length > 0) {
       setUserSubscription(true);
-      setMaxWords(10000000);
+      setMaxWords(20000000);
     }
   };
 
