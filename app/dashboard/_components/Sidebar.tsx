@@ -18,11 +18,11 @@ const Sidebar = () => {
       icon: FileClock,
       path: "/dashboard/history",
     },
-    {
-      name: "Billing",
-      icon: WalletCards,
-      path: "/dashboard/billing",
-    },
+    // {
+    //   name: "Billing",
+    //   icon: WalletCards,
+    //   path: "/dashboard/billing",
+    // },
     {
       name: "Setting",
       icon: Settings,

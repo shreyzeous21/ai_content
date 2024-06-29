@@ -2,11 +2,9 @@
 import React, { useState } from "react";
 import Sidebar from "./_components/Sidebar";
 import Header from "./_components/Header";
-// import SideNav from "./_components/SideNav";
-// import Header from "./_components/Header";
-// import { TotalUsageContext } from "../(context)/TotalUsageContext";
-// import { UserSubscriptionContext } from "../(context)/UserSubscriptionContext";
-// import { UpdateCreditUsageContext } from "../(context)/UpdateCreditUsageContext";
+import { TotalUsageContext } from "../(context)/TotalUsageContext";
+import { UserSubscriptionContext } from "../(context)/UserSubscriptionContext";
+import { UpdateCreditUsageContext } from "../(context)/UpdateCreditUsageContext";
 
 function layout({
   children,
@@ -18,25 +16,28 @@ function layout({
   const [updateCreditUsage, setUpdateCreditUsage] = useState<any>();
 
   return (
-    // <TotalUsageContext.Provider value={{ totalUsage, setTotalUsage }}>
-    //   <UserSubscriptionContext.Provider
-    //     value={{ userSubscription, setUserSubscription }}
-    //   >
-    //     <UpdateCreditUsageContext.Provider
-    //       value={{ updateCreditUsage, setUpdateCreditUsage }}
-    //     >
-    <div className="bg-slate-100 min-h-screen">
-      <div className="md:w-64 hidden md:block fixed">
-        <Sidebar />
-      </div>
-      <div className="md:ml-64">
-        <Header />
-        {children}
-      </div>
-    </div>
-    //     </UpdateCreditUsageContext.Provider>
-    //   </UserSubscriptionContext.Provider>
-    // </TotalUsageContext.Provider>
+    <TotalUsageContext.Provider value={{ totalUsage, setTotalUsage }}>
+      <UserSubscriptionContext.Provider
+        value={{ userSubscription, setUserSubscription }}
+      >
+        <UpdateCreditUsageContext.Provider
+          value={{ updateCreditUsage, setUpdateCreditUsage }}
+        >
+          <div className="bg-slate-100 min-h-screen">
+            <div className="md:w-64 hidden md:block fixed">
+              <Sidebar />
+            </div>
+            <div className="md:ml-64">
+              <Header />
+              {children}
+            </div>
+          </div>
+          //{" "}
+        </UpdateCreditUsageContext.Provider>
+        //{" "}
+      </UserSubscriptionContext.Provider>
+      //{" "}
+    </TotalUsageContext.Provider>
   );
 }
 
